@@ -1,0 +1,213 @@
+/* General for page, including tabs */
+#tabbed-content {
+    font-family: 'Kodchasan', Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#tabbed-content .ui-tabs-nav {
+    display: flex;
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#tabbed-content .ui-tabs-nav li {
+    flex: 1;
+    margin: 0px;
+    padding: 0px;
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+#tabbed-content .ui-tabs-nav li:last-child {
+    border-right: 0px;
+}
+
+#tabbed-content .ui-tabs-nav li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+#tabbed-content .ui-tabs-nav {
+    margin: 0px;
+    padding: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default {
+    background-color: #00659E;
+    color: white;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default a {
+    background-color: #00659E;
+    color: white;
+
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default a:hover {
+    background-color: #003E69;
+    color: white;
+
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-tabs-active.ui-state-active {
+    background-color: white;
+    color: black;
+    border: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-tabs-active.ui-state-active a {
+    background-color: white;
+    color: black;
+}
+
+#tabbed-content div.content {
+    padding: 20px;
+}
+
+/* parts 1 and 2 */
+
+form table {
+    margin: 0px;
+    padding: 5px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+form table tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+form table tr:nth-child(odd) {
+    background-color: #CCE4E2;
+}
+
+form table tr:last-child {
+    background-color: white;
+}
+
+form table tr:last-child td {
+    padding-right: 0px;
+    border: none;
+}
+
+td {
+    padding: 10px;
+}
+
+form table tr td:last-child {
+    background-color: white;
+    font-size: 12px;
+    border: none;
+    color: darkred;
+}
+
+#graderesult {
+    padding: 0px;
+    display: none;
+}
+
+#graderesult table tr td {
+    padding-left: 0px;
+    margin-left: 0px;
+    border-left: 0px;
+}
+
+#graderesult table td:last-child {
+    text-align: right;
+}
+
+#comment {
+    margin-top: 5px;
+}
+
+#sellerfield label {
+    font-size: 12px;
+}
+
+#resultstable {
+    text-align: right;
+    margin-top: 15px;
+}
+
+#resultstable td:first-child {
+    text-align: left;
+}
+
+#resultstable tr:first-child td {
+    border-bottom: 5px solid #007670;
+}
+
+#resultstable tr:first-child td:last-child {
+    border-bottom: 0px;
+}
+
+/* tooltip */
+
+.ui-tooltip {
+    background-color: rgba(0,101,158,0.9);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-family: 'Kodchasan', Arial, sans-serif;
+    font-size: 14px;
+    max-width: 300px;
+}
+
+/* extra credit */
+
+.start, .no {
+    color: #AD1987;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.start {
+    border: 1px solid #AD1987;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+#no {
+    border: 0px;
+    font-size: 13px;
+}
+
+#start-content {
+    display: block;
+}
+
+#question-content {
+    display: none;
+}
+
+#question-content table tr {
+    font-size: 16px;
+    text-align: right;
+}
+
+#question-content table tr td:last-child {
+    padding-right: 0px;
+}
+
+#question-inputs {
+    font-size: 11px;
+}
+
+#response-content {
+    display: none;
+}
+
+#response-inputs {
+    display: none;
+}

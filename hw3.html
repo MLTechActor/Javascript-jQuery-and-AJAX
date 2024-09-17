@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Functions - Javascript JQuery and AJAX">
+        <title>Functions</title>
+        <link href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Kodchasan' rel='stylesheet'>
+        <link href="css/styling.css" rel="stylesheet">
+        <link href="css/hw3.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+        <script src="js/hw3.js"></script>
+        <script>
+            $( function() {
+                $("#tabbed-content").tabs();
+                $(document).tooltip();
+            });
+
+            $(document).ready(function(){
+                $("#gradeform").submit(function(event){
+                    event.preventDefault();
+                    calculategrade();
+                });
+                $("#gradeclear").click(function(event){
+                    event.preventDefault();
+                    $("#gradeform")[0].reset();
+                    cleargrades();
+                });
+                
+                $("#seller").change(function(){
+                    let name = $(this).val();
+                    $("#sellername").text($(this).val() || "the seller");
+                })
+                $("#earnform").submit(function(event){
+                    event.preventDefault();
+                    calculateearnings();
+                });
+                $("#earnclear").click(function(event){
+                    event.preventDefault();
+                    $("#earnform")[0].reset();
+                    clearearnings();
+                });
+
+                $(".start").click(function(){
+                    $("#start-content").hide();
+                    $("#multform")[0].reset();
+                    let rndx = Math.floor(Math.random() * 10);
+                    let rndy = Math.floor(Math.random() * 10);
+                    $("#xvalue").text(rndx);
+                    $("#yvalue").text(rndy);
+                    $("#x").val(rndx);
+                    $("#y").val(rndy);
+                    $("#question-content").show();
+                    $("#question-inputs").show();
+                    $("#response-content").hide();
+                    $("#response-inputs").hide();
+                });
+                $("#multform").submit(function(event){
+                    event.preventDefault();
+                    multiplication();
+                });
+                $("#multclear").click(function(event){
+                    event.preventDefault();
+                    $("#multform")[0].reset();
+                    clearmult();
+                });
+                $("#no").click(function(){
+                    $("#start-content").show();
+                    $("#question-content").hide();
+                    $("#response-inputs").hide();
+                    $("#response").text("Thanks for playing! See you again soon!");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="page-container">
+            <div class="top-nav">
+                <a href="index.html" title="Homepage"><img class="logo" alt="Home Logo" src="images/mark_vector_faces.svg"></a>
+                <a class="name" href="index.html">Mark Leslie</a>
+                <a class="email" href="mailto:mlesli12@mail.ccsf.edu">mlesli12@mail.ccsf.edu</a>
+                <nav>
+                    <ul>
+                        <li><a href="hw2.html">Basic Ops</a></li>
+                        <li><a class="active" href="hw3.html">Functions</a></li>
+                        <li><a href="hw4.html">HW4</a></li>
+                        <li><a href="hw5.html">HW5</a></li>
+                    </ul>
+                </nav>
+                <div class="footer">Copyright 2024</div>
+            </div>
+            <div class="main-content">
+                <header>
+                    <h2>Javascript • JQuery • AJAX</h2>
+                    <h4>CNIT 133</h4>
+                </header>
+                <div id="tabbed-content">
+                    <div class="sub-nav">
+                        <ul>
+                            <li><a href="#splash">homework 3</a></li>
+                            <li><a href="#part1">part 1</a></li>
+                            <li><a href="#part2">part 2</a></li>
+                            <li><a href="#extracredit">extra credit</a></li>
+                        </ul>
+                    </div>
+<!--    Homepage    -->
+                    <div id="splash" class="content">
+                        <h3>homework 3 - functions</h3>
+                        <p>This assignment is split into 3 parts:</p>
+                        <ol>
+                            <li>Student grade calculator</li>
+                            <li>Weekly earnings calculator</li>
+                            <li>Math.random multiplication exercise</li>
+                        </ol>
+                    </div>
+<!--    Part 1    -->
+                    <div id="part1" class="content">
+                        <h3>student grades</h3>
+                        <div class="instructions">This script takes scores - all entered as integers - and converts them into a number grade. Try it yourself! Enter a score of 0 - 100 in each input field.</div>
+                        <form id="gradeform" name="gradeform">
+                            <div class="table">
+                                <table>
+                                    <tr>
+                                        <td><label for="hwavg">Homework average:</label></td>
+                                        <td style="text-align: right;"><input type="text" id="hwavg" name="hwavg" size="4"></td>
+                                        <td id="hwavgerror"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="midexscr">Mid-term exam score:</label></td>
+                                        <td style="text-align: right;"><input type="text" id="midexscr" name="midexscr" size="4"></td>
+                                        <td id="midexscrerror"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="finexscr">Final exam score:</label></td>
+                                        <td style="text-align: right;"><input type="text" id="finexscr" name="finexscr" size="4"></td>
+                                        <td id="finexscrerror"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="part">Participation:</label></td>
+                                        <td style="text-align: right;"><input type="text" id="part" name="part" size="4"></td>
+                                        <td id="parterror"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: right;">
+                                            <input class="clear" type="reset" id="gradeclear" name="gradeclear" value="Clear">
+                                            <input class="submit" type="submit" value="Submit">
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
+                        <div id="graderesult">
+                            <table>
+                                <tr>
+                                    <td>final average: </td>
+                                    <td id="finalavg"></td>
+                                </tr>
+                                <tr>
+                                    <td>letter grade: </td>
+                                    <td id="lettergrade"></td>
+                                </tr>
+                            </table>
+                            <div id="comment"></div>
+                        </div>
+                    </div>
+<!--    Part 2    -->
+                    <div id="part2" class="content">
+                        <h3>weekly earnings</h3>
+                        <div class="instructions">This script calculates earnings based on commission from sales. Try hovering your mouse over the seller's name form field!</div>
+                        <form id="earnform" name="earnform">
+                            <div id="sellerfield">
+                                <label for="seller">seller's name</label><br>
+                                <input type="text" id="seller" name="seller" title="Please make sure the salesperson's name is spelled correctly!">
+                            </div>
+                            <p>For each item type the quantity sold by <span id="sellername">the seller</span></p>
+                            <div id="earntables">
+                                <div id="itemtable">
+                                    <table>
+                                        <tr>
+                                            <td><label for="item1">item 1:  </label></td>
+                                            <td style="text-align: right;"><input type="text" id="item1" name="item1" size="4"></td>
+                                            <td id="item1error"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="item2">item 2:  </label></td>
+                                            <td style="text-align: right;"><input type="text" id="item2" name="item2" size="4"></td>
+                                            <td id="item2error"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="item3">item 3:  </label></td>
+                                            <td style="text-align: right;"><input type="text" id="item3" name="item3" size="4"></td>
+                                            <td id="item3error"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="item4">item 4:  </label></td>
+                                            <td style="text-align: right;"><input type="text" id="item4" name="item4" size="4"></td>
+                                            <td id="item4error"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="text-align: right;">
+                                                <input class="clear" type="reset" id="earnclear" name="earnclear" value="Clear">
+                                                <input class="submit" type="submit" value="Submit">
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="resultstable">
+                                    <table>
+                                        <tr>
+                                            <td>item#</td>
+                                            <td>price</td>
+                                            <td>qty sold</td>
+                                            <td>total $</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>$20.99</td>
+                                            <td id="q1"></td>
+                                            <td id="total1"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>$12.75</td>
+                                            <td id="q2"></td>
+                                            <td id="total2"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>$9.95</td>
+                                            <td id="q3"></td>
+                                            <td id="total3"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>$35.89</td>
+                                            <td id="q4"></td>
+                                            <td id="total4"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">total amount sold</td>
+                                            <td id="grandtotal"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">total weekly earnings</td>
+                                            <td id="earnings"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+<!--    Extra Credit    -->
+                    <div id="extracredit" class="content">
+                        <h3>math.random exercises</h3>
+                        <div class="instructions">Learn and practice multiplication by playing this fun simple game.</div>
+                        <form id="multform" name="multform">
+                            <div class="mult-content">
+                                <div id="start-content">
+                                    <div id="startbutton"><input type="button" class="start" id="start" name="start" value="Start"></div>
+                                </div>
+                                <div id="question-content">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="guess">What is <span id="xvalue"></span> times <span id="yvalue"></span>?</label> 
+                                            </td>
+                                            <td>
+                                                <input type="text" id="guess" name="guess" size="3">
+                                            </td>
+                                            <td id="guesserror"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div id="question-inputs">
+                                                    <input class="clear" type="reset" id="multclear" name="multclear" value="Clear">
+                                                    <input class="submit" type="submit" value="Submit">
+                                                    <input type="hidden" id="x" name="x">
+                                                    <input type="hidden" id="y" name="y">
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="response-content">
+                                    <p id="response"></p>
+                                    <div id="response-inputs">
+                                        <input class="no" type="button" id="no" name="no" value="No">
+                                        <input class="start" type="button" id="yes" name="yes" value="Yes">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

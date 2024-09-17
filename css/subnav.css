@@ -1,0 +1,27 @@
+.sub-nav {
+    display: flex;
+    width: 100%;
+}
+
+.sub-nav a:link, .sub-nav a:visited {
+    flex: 1;
+    background-color: #00659E;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-right: 1px solid #ddd;
+    padding: 5px 0px;
+}
+
+.sub-nav a:last-child {
+    border-right: none;
+}
+
+.sub-nav a.active, .sub-nav a.active:hover {
+    background-color: white;
+    color: black;
+}
+
+.sub-nav a:hover {
+    background-color: #003E69;
+}

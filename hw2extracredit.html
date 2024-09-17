@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Basic Operations Exchange Rates - Javascript JQuery and AJAX">
+        <title>Exchange Rate Exercise</title>
+        <link href='https://fonts.googleapis.com/css?family=Kodchasan' rel='stylesheet'>
+        <link href="css/styling.css" rel="stylesheet">
+        <link href="css/subnav.css" rel="stylesheet">
+        <link href="css/hw2.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="js/hw2.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".showhide").click(function() {
+                    $(".hiddentext").slideToggle("slow");
+                });
+                $("#usd").focus(function() {
+                    $(this).css('background-color','#FFE14F');
+                });
+                $("#usd").blur(function() {
+                    $(this).css('background-color','white');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="page-container">
+            <div class="top-nav">
+                <a href="index.html" title="Homepage"><img class="logo" alt="Home Logo" src="images/mark_vector_faces.svg"></a>
+                <a class="name" href="index.html">Mark Leslie</a>
+                <a class="email" href="mailto:mlesli12@mail.ccsf.edu">mlesli12@mail.ccsf.edu</a>
+                <nav>
+                    <ul>
+                        <li><a class="active" href="hw2.html">Basic Ops</a></li>
+                        <li><a href="hw3.html">Functions</a></li>
+                        <li><a href="hw4.html">HW4</a></li>
+                        <li><a href="hw5.html">HW5</a></li>
+                    </ul>
+                </nav>
+                <div class="footer">Copyright 2024</div>
+            </div>
+            <div class="main-content">
+                <header>
+                    <h2>Javascript • JQuery • AJAX</h2>
+                    <h4>CNIT 133</h4>
+                </header>
+                <div class="sub-nav">
+                    <a href="hw2.html">homework 2</a>
+                    <a href="hw2part1.html">part 1</a>
+                    <a href="hw2part2.html">part 2</a>
+                    <a class="active" href="hw2extracredit.html">extra credit</a>
+                </div>
+                <div class="content">
+                    <h3>exchange rate exercise <img class="showhide" alt="Help Text" src="images/information.svg"></h3>
+                    <form id="exchangerates" name="exchangerates" method="post">
+                        <div class="instructions">
+                            <div class="hiddentext">
+                                The foreign exchange rates in June 2021. Enter a dollar amount in the table below to see the corresponding foreign exchange values.
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="ertable">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3" style="font-size: 15px; text-align: center;">monetary exchange rates</td>
+                                    </tr>
+                                    <tr style="border-bottom: 5px solid#007670;">
+                                        <td>currency</td>
+                                        <td style="text-align: right;">rate</td>
+                                        <td style="text-align: right;">value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Euro</td>
+                                        <td style="text-align: right;">0.92</td>
+                                        <td id="euro" style="text-align: right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Canadian Dollar</td>
+                                        <td style="text-align: right;">1.38</td>
+                                        <td id="cand" style="text-align: right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hong Kong Dollar</td>
+                                        <td style="text-align: right;">7.81</td>
+                                        <td id="hkd" style="text-align: right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Japanese Yen</td>
+                                        <td style="text-align: right;">156.73</td>
+                                        <td id="yen" style="text-align: right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mexican Peso</td>
+                                        <td style="text-align: right;">18.41</td>
+                                        <td id="peso" style="text-align: right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" ><label for="usd">amount of U.S. Dollars</label></td>
+                                        <td style="text-align: right;"><input type="text" size="7" id="usd" name="usd"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="belowtable">
+                                <span id="errormessage"></span>
+                                <input class="clear" type="reset" onclick="clearvalues()" value="Clear">
+                                <span class="submit" onclick="calcrates()">Submit</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

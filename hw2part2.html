@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Basic Operations Math Methods - Javascript JQuery and AJAX">
+        <title>Math Methods</title>
+        <link href='https://fonts.googleapis.com/css?family=Kodchasan' rel='stylesheet'>
+        <link href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" rel="stylesheet">
+        <link href="css/styling.css" rel="stylesheet">
+        <link href="css/subnav.css" rel="stylesheet">
+        <link href="css/hw2.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+        <script src="js/hw2.js"></script>
+        <script>
+            $(function() {
+                $("#slider").slider({
+                    min: 0,
+                    max: 1,
+                    step: 0.01,
+                    value: 1,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        $("#resultstable").css('opacity', ui.value);
+                    }
+                });
+            });
+            $(document).ready(function() {
+                $("#mathform").submit(function(event){
+                    event.preventDefault();
+                    mathoperations();
+                    $("#resultstable").fadeTo("fast", 1);
+                    $("#slider").slider("value", 1);
+                });
+                $(".clear").click(function(event){
+                    event.preventDefault();
+                    $("#mathform")[0].reset();
+                    clearmath();
+                    $("#resultstable").fadeTo("fast", 1);
+                    $("#slider").slider("value", 1);
+                });
+                $(".fader").click(function() {
+                    $("#resultstable").fadeTo("slow", 0.4);
+                    $("#slider").slider("value", 0.4);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="page-container">
+            <div class="top-nav">
+                <a href="index.html" title="Homepage"><img class="logo" alt="Home Logo" src="images/mark_vector_faces.svg"></a>
+                <a class="name" href="index.html">Mark Leslie</a>
+                <a class="email" href="mailto:mlesli12@mail.ccsf.edu">mlesli12@mail.ccsf.edu</a>
+                <nav>
+                    <ul>
+                        <li><a class="active" href="hw2.html">Basic Ops</a></li>
+                        <li><a href="hw3.html">Functions</a></li>
+                        <li><a href="hw4.html">HW4</a></li>
+                        <li><a href="hw5.html">HW5</a></li>
+                    </ul>
+                </nav>
+                <div class="footer">Copyright 2024</div>
+            </div>
+            <div class="main-content">
+                <header>
+                    <h2>Javascript • JQuery • AJAX</h2>
+                    <h4>CNIT 133</h4>
+                </header>
+                <div class="sub-nav">
+                    <a href="hw2.html">homework 2</a>
+                    <a href="hw2part1.html">part 1</a>
+                    <a class="active" href="hw2part2.html">part 2</a>
+                    <a href="hw2extracredit.html">extra credit</a>
+                </div>
+                <div class="content">
+                    <h3>math methods form</h3>
+                    <div class="instructions">
+                        Please enter 3 integers. This form will perform various calculations based on your input. Note: The leftmost value you enter for each field must be a number.
+                    </div>
+                    <div>
+                        <form id="mathform" method="post">
+                            <table>
+                                <tr>
+                                    <td><label for="num1">number 1: </label></td>
+                                    <td style="text-align: right;"><input type="text" id="num1" name="num1" size="4"></td>
+                                    <td class="numerror" id="num1error"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="num2">number 2: </label></td>
+                                    <td style="text-align: right;"><input type="text" id="num2" name="num2" size="4"></td>
+                                    <td class="numerror" id="num2error"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="num3">number 3: </label></td>
+                                    <td style="text-align: right;"><input type="text" id="num3" name="num3" size="4"></td>
+                                    <td class="numerror" id="num3error"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input class="clear" type="reset" value="Clear">
+                                        <input class="submit" type="submit" value="Submit">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <div class="results">
+                            <div class="slider-inst">use slider to fade results</div>
+                            <div id="slider"></div>
+                            <div id="resultstable">
+                                <table>
+                                    <tr>
+                                        <td>sum:</td>
+                                        <td id="sum"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>product:</td>
+                                        <td id="product"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>average</td>
+                                        <td id="average"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>smallest:</td>
+                                        <td id="smallest"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>largest:</td>
+                                        <td id="largest"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

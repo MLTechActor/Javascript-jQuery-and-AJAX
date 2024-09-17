@@ -1,0 +1,133 @@
+/* part 1 */
+
+#redtext {
+    color:red;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#bluetext {
+    color:blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#greentext {
+    color:green;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+/* part 2 */
+
+#mathform table, #resultstable table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#mathform table td, #resultstable table td {
+    margin: 0px;
+    padding: 10px;
+}
+
+#mathform table td:last-child {
+    background-color: white;
+    color: darkred;
+    font-size: 12px;
+}
+
+#mathform table tr:last-child td {
+    background-color: white;
+    text-align: right;
+    padding-right: 0px;
+}
+
+.results {
+    width: 265px;
+    background-color: #F2F2F2;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.slider-inst {
+    font-size: 13px;
+}
+
+#resultstable table {
+    width: 245px;
+}
+
+#resultstable table td:first-child {
+    text-align: left;
+}
+
+#resultstable table td:nth-child(2) {
+    text-align: right;
+}
+
+#slider {
+    margin-top: 10px;
+    height: 2px;
+    background-color: #ccc;
+    border: none;
+}
+
+#slider .ui-slider-handle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #AD1987;
+    border: none;
+    top: -5px;
+}
+
+#slider .ui-slider-handle:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* extra credit */
+
+.showhide {
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.hiddentext {
+    height: auto; 
+    display: none;
+}
+
+#ertable {
+    width: 400px;
+    margin: 0px;
+    padding: 5px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+#ertable tr:nth-child(even), #mathform table tr:nth-child(even), #resultstable table tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+#ertable tr:nth-child(odd), #mathform table tr:nth-child(odd), #resultstable table tr:nth-child(odd) {
+    background-color: #CCE4E2;
+}
+
+#ertable td {
+    margin: 0px;
+    padding: 10px;
+    border: 0px;
+}
+
+.belowtable {
+    width: 400px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+#errormessage {
+    color: darkred;
+    font-size: 11px;
+    padding-right: 20px;
+}
