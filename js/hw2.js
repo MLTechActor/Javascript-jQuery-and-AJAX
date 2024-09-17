@@ -3,16 +3,9 @@ function mathoperations() {
     let num2 = parseInt(document.getElementById("num2").value);
     let num3 = parseInt(document.getElementById("num3").value);
     if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
-        let errormessage = "";
-        if (isNaN(num1)) {
-            document.getElementById("num1error").innerHTML = "number 1 must contain a numeric value!<br>";
-        }
-        if (isNaN(num2)) {
-            document.getElementById("num2error").innerHTML = "number 2 must contain a numeric value!<br>";
-        }
-        if (isNaN(num3)) {
-            document.getElementById("num3error").innerHTML = "number 3 must contain a numeric value!<br>";
-        }
+        document.getElementById("num1error").innerHTML = isNaN(num1) ? "number 1 must contain a numeric value!<br>" : "";
+        document.getElementById("num2error").innerHTML = isNaN(num2) ? "number 2 must contain a numeric value!<br>" : "";
+        document.getElementById("num3error").innerHTML = isNaN(num3) ? "number 3 must contain a numeric value!<br>" : "";
     } else {
         let total = num1 + num2 + num3;
         let product = num1 * num2 * num3;
