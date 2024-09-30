@@ -206,6 +206,7 @@ function calculateearnings() {
 }
 
 function clearearnings() {
+    document.getElementById("sellername").innerHTML = "the seller";
     document.getElementById("item1error").innerHTML = "";
     document.getElementById("item2error").innerHTML = "";
     document.getElementById("item3error").innerHTML = "";
@@ -239,7 +240,7 @@ function multiplication() {
         document.getElementById("response").innerHTML = "";
         document.getElementById("guesserror").innerHTML = "Please enter a number!";
     } else {
-        document.getElementById("guess").value = !isNaN(guess) ? guess : "";
+        document.getElementById("guess").value = guess;
         document.getElementById("response").innerHTML = "";
         document.getElementById("guesserror").innerHTML = "No. Please try again.";
     }

@@ -22,6 +22,15 @@
                 $("#usd").blur(function() {
                     $(this).css('background-color','white');
                 });
+                $("#exchangerates").submit(function(event){
+                    event.preventDefault();
+                    calcrates();
+                });
+                $(".clear").click(function(event){
+                    event.preventDefault();
+                    $("#exchangerates")[0].reset();
+                    clearvalues();
+                });
             });
         </script>
     </head>
@@ -33,7 +42,7 @@
                 <a class="email" href="mailto:mlesli12@mail.ccsf.edu">mlesli12@mail.ccsf.edu</a>
                 <nav>
                     <ul>
-                        <li><a class="active" href="hw2.html">Basic Ops</a></li>
+                        <li><a class="active" href="hw2.html">Basic Operations</a></li>
                         <li><a href="hw3.html">Functions</a></li>
                         <li><a href="hw4.html">HW4</a></li>
                         <li><a href="hw5.html">HW5</a></li>
@@ -104,8 +113,8 @@
                             </table>
                             <div class="belowtable">
                                 <span id="errormessage"></span>
-                                <input class="clear" type="reset" onclick="clearvalues()" value="Clear">
-                                <span class="submit" onclick="calcrates()">Submit</span>
+                                <input class="clear" type="reset" value="Clear">
+                                <input class="submit" type="submit" value="Submit">
                             </div>
                         </div>
                     </form>

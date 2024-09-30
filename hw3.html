@@ -30,7 +30,6 @@
                 });
                 
                 $("#seller").change(function(){
-                    let name = $(this).val();
                     $("#sellername").text($(this).val() || "the seller");
                 })
                 $("#earnform").submit(function(event){
@@ -83,7 +82,7 @@
                 <a class="email" href="mailto:mlesli12@mail.ccsf.edu">mlesli12@mail.ccsf.edu</a>
                 <nav>
                     <ul>
-                        <li><a href="hw2.html">Basic Ops</a></li>
+                        <li><a href="hw2.html">Basic Operations</a></li>
                         <li><a class="active" href="hw3.html">Functions</a></li>
                         <li><a href="hw4.html">HW4</a></li>
                         <li><a href="hw5.html">HW5</a></li>
@@ -118,7 +117,7 @@
 <!--    Part 1    -->
                     <div id="part1" class="content">
                         <h3>student grades</h3>
-                        <div class="instructions">This script takes scores - all entered as integers - and converts them into a number grade. Try it yourself! Enter a score of 0 - 100 in each input field.</div>
+                        <div class="instructions">This script takes scores - all entered as integers - and calculates the final grade using a specified formula. Try it yourself! Enter a score of 0 - 100 in each input field.</div>
                         <form id="gradeform" name="gradeform">
                             <div class="table">
                                 <table>
@@ -180,22 +179,22 @@
                                 <div id="itemtable">
                                     <table>
                                         <tr>
-                                            <td><label for="item1">item 1:  </label></td>
+                                            <td><label for="item1">item 1: </label></td>
                                             <td style="text-align: right;"><input type="text" id="item1" name="item1" size="4"></td>
                                             <td id="item1error"></td>
                                         </tr>
                                         <tr>
-                                            <td><label for="item2">item 2:  </label></td>
+                                            <td><label for="item2">item 2: </label></td>
                                             <td style="text-align: right;"><input type="text" id="item2" name="item2" size="4"></td>
                                             <td id="item2error"></td>
                                         </tr>
                                         <tr>
-                                            <td><label for="item3">item 3:  </label></td>
+                                            <td><label for="item3">item 3: </label></td>
                                             <td style="text-align: right;"><input type="text" id="item3" name="item3" size="4"></td>
                                             <td id="item3error"></td>
                                         </tr>
                                         <tr>
-                                            <td><label for="item4">item 4:  </label></td>
+                                            <td><label for="item4">item 4: </label></td>
                                             <td style="text-align: right;"><input type="text" id="item4" name="item4" size="4"></td>
                                             <td id="item4error"></td>
                                         </tr>

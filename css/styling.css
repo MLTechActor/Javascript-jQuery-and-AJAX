@@ -59,6 +59,7 @@ nav {
 
 nav ul {
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 .top-nav nav ul li a {
@@ -118,13 +119,14 @@ header h2, header h4 {
     border: none;
     background-color: inherit;
     color: #AD1987;
+    font-size: 12px;
     cursor: pointer;
 }
 
 .submit {
     background-color: inherit;
     color: #AD1987;
-    font-size: 11px;
+    font-size: 12px;
     padding: 2px;
     border: 1px solid #AD1987;
     border-radius: 2px;

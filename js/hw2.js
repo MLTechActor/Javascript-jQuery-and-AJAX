@@ -40,8 +40,18 @@ function clearmath() {
 function calcrates() {
     let usd = parseFloat(document.getElementById("usd").value);
     if (isNaN(usd)) {
+        document.getElementById("euro").innerHTML = "";
+        document.getElementById("cand").innerHTML = "";
+        document.getElementById("hkd").innerHTML = "";
+        document.getElementById("yen").innerHTML = "";
+        document.getElementById("peso").innerHTML = "";
         document.getElementById("errormessage").innerHTML = "Please enter a numeric value!";
     } else if (usd < 0) {
+        document.getElementById("euro").innerHTML = "";
+        document.getElementById("cand").innerHTML = "";
+        document.getElementById("hkd").innerHTML = "";
+        document.getElementById("yen").innerHTML = "";
+        document.getElementById("peso").innerHTML = "";
         document.getElementById("errormessage").innerHTML = "Please enter a positive value!";
     } else {
         let euro = usd * 0.92;
