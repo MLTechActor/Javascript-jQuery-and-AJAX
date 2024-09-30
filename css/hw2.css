@@ -19,10 +19,6 @@
 
 /* part 2 */
 
-#mathform table{
-    width: 250px;
-}
-
 #mathform table, #resultstable table {
     margin-top: 20px;
     border-collapse: collapse;
