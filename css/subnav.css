@@ -1,3 +1,5 @@
+/* For Homework 2 */
+
 .sub-nav {
     display: flex;
     width: 100%;
@@ -24,4 +26,80 @@
 
 .sub-nav a:hover {
     background-color: #003E69;
+}
+
+/* For jQuery UI tabbed content */
+#tabbed-content {
+    font-family: 'Kodchasan', Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#tabbed-content .ui-tabs-nav {
+    display: flex;
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#tabbed-content .ui-tabs-nav li {
+    flex: 1;
+    margin: 0px;
+    padding: 0px;
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+#tabbed-content .ui-tabs-nav li:last-child {
+    border-right: 0px;
+}
+
+#tabbed-content .ui-tabs-nav li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+#tabbed-content .ui-tabs-nav {
+    margin: 0px;
+    padding: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default {
+    background-color: #00659E;
+    color: white;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default a {
+    background-color: #00659E;
+    color: white;
+
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-state-default a:hover {
+    background-color: #003E69;
+    color: white;
+
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-tabs-active.ui-state-active {
+    background-color: white;
+    color: black;
+    border: 0px;
+}
+
+#tabbed-content .sub-nav .ui-tabs-nav li.ui-tabs-active.ui-state-active a {
+    background-color: white;
+    color: black;
+}
+
+#tabbed-content div.content {
+    padding: 20px;
 }

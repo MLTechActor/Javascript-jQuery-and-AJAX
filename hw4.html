@@ -3,10 +3,55 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Homework 4 - Javascript JQuery and AJAX">
-        <title>Homework 4</title>
+        <meta name="description" content="Looping Statements - Javascript JQuery and AJAX">
+        <title>Looping Statements</title>
         <link href='https://fonts.googleapis.com/css?family=Kodchasan' rel='stylesheet'>
-        <link rel="stylesheet" href="css/styling.css">
+        <link href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" rel="stylesheet">
+        <link href="css/styling.css" rel="stylesheet">
+        <link href="css/subnav.css" rel="stylesheet">
+        <link href="css/hw4.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+        <script src="js/hw4.js"></script>
+        <script>
+            $( function() {
+                $("#tabbed-content").tabs();
+                $("#draggables div").draggable({
+                    stack: "#draggables div",
+                    start: function(event, ui) {
+                        $(this).data("startPos", { left:0, top:0 });
+                    }
+                });
+                $("#droparea").droppable({
+                    drop: function( event, ui ) {
+                        let draggedId = ui.draggable.attr("id");
+                        calculatewithloops(draggedId);
+                    }
+                });
+            });
+
+            $(document).ready(function(){
+                buildtables(1000, 5, 7, 5);
+
+                $("#dragreset").click(function() {
+                    $("#draggables div").each(function() {
+                        let startPos = $(this).data("startPos");
+                        $(this).animate(startPos, "slow");
+                    });
+                    clearcalculations();
+                });
+
+                $("#hsform").submit(function(event){
+                    event.preventDefault();
+                    buildsquare();
+                });
+                $("#clear").click(function(event){
+                    event.preventDefault();
+                    $("#hsform")[0].reset();
+                    clearhs();
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="page-container">
@@ -18,7 +63,7 @@
                     <ul>
                         <li><a href="hw2.html">Basic Operations</a></li>
                         <li><a href="hw3.html">Functions</a></li>
-                        <li><a class="active" href="hw4.html">HW4</a></li>
+                        <li><a class="active" href="hw4.html">Looping Statements</a></li>
                         <li><a href="hw5.html">HW5</a></li>
                     </ul>
                 </nav>
@@ -29,9 +74,111 @@
                     <h2>Javascript • JQuery • AJAX</h2>
                     <h4>CNIT 133</h4>
                 </header>
-                <div class="content">
-                    <h3>homework 4</h3>
-                    <p>content coming soon</p>
+                <div id="tabbed-content">
+                    <div class="sub-nav">
+                        <ul>
+                            <li><a href="#splash">homework 4</a></li>
+                            <li><a href="#part1">part 1</a></li>
+                            <li><a href="#part2">part 2</a></li>
+                            <li><a href="#extracredit">extra credit</a></li>
+                        </ul>
+                    </div>
+<!--    Homepage    -->
+                    <div id="splash" class="content">
+                        <h3>homework 4 - looping statements</h3>
+                        <p>This assignment is split into 3 parts:</p>
+                        <ol>
+                            <li>For and while looping statements using toLocaleString()</li>
+                            <li>Compound interest calculator</li>
+                            <li>Hollow square builder</li>
+                        </ol>
+                    </div>
+<!--    Part 1    -->
+                    <div id="part1" class="content">
+                        <h3>for and while with toLocaleString()</h3>
+                        <div class="instructions">This page calculates 4 values - using for and while loops - and renders them using toLocaleString(). Drag the 4 boxes below to view their results.</div>
+                        <div id="draggables">
+                            <div id="drag1" class="draggable">
+                                <table>
+                                    <tr>
+                                        <td><span class="bold">calculation 01</span><br>5*9*13*17*21*25=</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="product1">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="drag2" class="draggable">
+                                <table>
+                                    <tr>
+                                        <td><span class="bold">calculation 02</span><br>5+9+13+17+21+25=</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sum1">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="drag3" class="draggable">
+                                <table>
+                                    <tr>
+                                        <td><span class="bold">calculation 03</span><br>3*6*9*12*15*18=</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="product2">&nbsp;</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <div id="drag4" class="draggable">
+                                <table>
+                                    <tr>
+                                        <td><span class="bold">calculation 04</span><br>3+6+9+12+15+18=</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sum2">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="droparea">
+                            drag a calculation here
+                        </div>
+                        <div id="resetbutton">
+                            <span id="dragreset" class="submit">Reset</span>
+                        </div>
+                    </div>
+<!--    Part 2    -->
+                    <div id="part2" class="content">
+                        <h3>compound interest</h3>
+                        <div class="instructions">This page displays 3 tables, which show the different rates of returns for a principal of $1,000 based on 5%, 6% and 7% respectively, over a period of 5 years. This code is set up to be reusable for different principals, interest rates or time ranges.</div>
+                        <div id="tablecontainer"></div>
+                    </div>
+<!--    Extra Credit    -->
+                    <div id="extracredit" class="content">
+                        <h3>hollow square builder</h3>
+                        <div class="instructions">This page builds an asterisk square based on the size you specify. Please enter an integer from 2 to 10 inclusive in the form field below.</div>
+                        <form id="hsform" name="hsform">
+                            <table id="hsinput">
+                                <tr>
+                                    <td>
+                                        <label for="num">number:&nbsp;</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="num" name="num" size="2">
+                                    </td>
+                                    <td id="error"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="buttons">
+                                        <input class="clear" type="reset" id="clear" name="clear" value="Clear">
+                                        <input class="submit" type="submit" value="Submit">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div id="result"></div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

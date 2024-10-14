@@ -1,0 +1,120 @@
+/* Part 1 */
+
+.bold {
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+#draggables {
+    width: 600px;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.draggable {
+    position: relative;
+    background-color: #CCE4E2;
+    padding: 0px 5px;
+    border: 1px solid #AD1987;
+    text-align: center;
+    cursor: pointer;
+}
+
+.draggable table {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.draggable table tr:last-child {
+    background-color: #F2F2F2;
+    padding: 0px;
+}
+
+.draggable table tr:last-child td {
+    padding: 5px;
+}
+
+#droparea {
+    display: flex;
+    margin-top: 20px;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(0, 139, 192, 0.15);
+    color: #878787;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#resetbutton {
+    width: 600px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* Part 2 */
+
+#tablecontainer table {
+    margin: 10px 0px;
+    padding: 5px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+#tablecontainer table tr:first-child td {
+    border-bottom: 5px solid #007670;
+}
+
+#tablecontainer table tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+#tablecontainer table tr:nth-child(odd) {
+    background-color: #CCE4E2;
+}
+
+#tablecontainer table tr td:nth-child(2), #tablecontainer table tr td:nth-child(3) {
+    text-align: right;
+}
+
+/* Extra Credit */
+
+#hsinput {
+    margin: 10px 0px;
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+#hsinput tr:first-child {
+    background-color: #CCE4E2;
+}
+
+#hsinput tr:first-child td:last-child {
+    background-color: white;
+}
+
+#hsinput tr:last-child td {
+    padding-right: 0px;
+} 
+
+.buttons {
+    text-align: right;
+    font-size: 12px;
+}
+
+#error {
+    font-size: 14px;
+    color: darkred;
+}
+
+#result {
+    font-family: monospace;
+    line-height: 0.7em;
+}

@@ -76,7 +76,7 @@ function calculategrade() {
                 break;
             case (finalavg < 80 && finalavg >= 70):
                 lettergrade = "C";
-                comment = "Student   needs help.";
+                comment = "Doing OK.";
                 break;
             case (finalavg < 70 && finalavg >= 60):
                 lettergrade = "D";
@@ -192,12 +192,12 @@ function calculateearnings() {
         document.getElementById("q2").innerHTML = item2;
         document.getElementById("q3").innerHTML = item3;
         document.getElementById("q4").innerHTML = item4;
-        document.getElementById("total1").innerHTML = total1.toFixed(2);
-        document.getElementById("total2").innerHTML = total2.toFixed(2);
-        document.getElementById("total3").innerHTML = total3.toFixed(2);
-        document.getElementById("total4").innerHTML = total4.toFixed(2);
-        document.getElementById("grandtotal").innerHTML = grandtotal.toFixed(2);
-        document.getElementById("earnings").innerHTML = earnings.toFixed(2);
+        document.getElementById("total1").innerHTML = total1.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        document.getElementById("total2").innerHTML = total2.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        document.getElementById("total3").innerHTML = total3.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        document.getElementById("total4").innerHTML = total4.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        document.getElementById("grandtotal").innerHTML = grandtotal.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        document.getElementById("earnings").innerHTML = earnings.toLocaleString("en-US", {style:"currency", currency:"USD"});
         document.getElementById("item1error").innerHTML = "";
         document.getElementById("item2error").innerHTML = "";
         document.getElementById("item3error").innerHTML = "";
