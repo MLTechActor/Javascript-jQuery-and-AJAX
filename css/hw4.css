@@ -64,11 +64,12 @@
     border-collapse: collapse;
 }
 
-td {
+td, th {
     padding: 10px;
+    font-weight: normal;
 }
 
-#tablecontainer table tr:first-child td {
+#tablecontainer table tr:first-child th {
     border-bottom: 5px solid #007670;
 }
 
