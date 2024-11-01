@@ -1,10 +1,64 @@
+/* General */
+
+form table {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.error {
+    color: darkred;
+}
+
+.buttons {
+    text-align: right;
+}
+
 /* Part 1 */
 
+#moviefield {
+    margin-top: 20px;
+}
 
+#form1 table tr td {
+    padding-bottom: 20px;
+}
+
+#form1 table tr:last-child td {
+    padding-bottom: 0px;
+}
+
+#form1 table tr td:first-child, #form3 table tr td:first-child {
+    line-height: 20px;
+}
+
+#form1 table tr td:last-child {
+    vertical-align: bottom;
+}
 
 /* Part 2 */
 
-
+#form2 table tr td {
+    padding: 10px 0px;
+    width: 300px;
+}
 
 /* Part 3 */
 
+#form1output, #form3output {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+#form3 table tr td {
+    padding: 10px 0px;
+}
+
+#form3 table tr td:last-child {
+    vertical-align: bottom;
+}
+
+#form3output fieldset {
+    width: 300px;
+}

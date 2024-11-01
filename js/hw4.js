@@ -47,16 +47,16 @@ function buildtables(principal, minr, maxr, years) {
     for (let i = minr; i <= maxr; i++) {
         citable = document.createElement('table');
         citr = document.createElement('tr');
-        td1 = document.createElement('th');
-        td1.innerText = 'year';
-        td2 = document.createElement('th');
-        td2.innerText = 'amount on deposit';
-        td3 = document.createElement('th');
-        td3.innerText = 'interest rate';
+        th1 = document.createElement('th');
+        th1.innerText = 'year';
+        th2 = document.createElement('th');
+        th2.innerText = 'amount on deposit';
+        th3 = document.createElement('th');
+        th3.innerText = 'interest rate';
 
-        citr.appendChild(td1);
-        citr.appendChild(td2);
-        citr.appendChild(td3);
+        citr.appendChild(th1);
+        citr.appendChild(th2);
+        citr.appendChild(th3);
         citable.appendChild(citr)
 
         for (let j = 1; j <= years; j++) {
