@@ -1,0 +1,30 @@
+/* General */
+
+form table {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    line-height: 20px;
+    border-collapse: collapse;
+}
+
+form table tr td:last-child {
+    vertical-align: bottom;
+}
+
+.error {
+    color: darkred;
+}
+
+.buttons {
+    padding-top: 10px;
+    text-align: right;
+}
+
+textarea {
+    resize: none;
+}
+
+#form1output, #form2output, #form3output {
+    padding-top: 15px;
+}
