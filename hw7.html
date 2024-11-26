@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="HW7 - Javascript JQuery and AJAX">
-        <title>HW7</title>
+        <meta name="description" content="Object Model jQuery - Javascript JQuery and AJAX">
+        <title>Object Model Misc jQuery</title>
         <link href='https://fonts.googleapis.com/css?family=Kodchasan' rel='stylesheet'>
         <link href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" rel="stylesheet">
         <link href="css/styling.css" rel="stylesheet">
@@ -16,6 +16,34 @@
         <script>
             $( function() {
                 $("#tabbed-content").tabs();
+            });
+
+            $(document).ready(function(){
+                $('#form1 input[type="radio"]').change(function() {
+                    let selectedColor = $(this).val();
+                    $('#form1text').css('background-color', selectedColor)
+                });
+                $('#form1 input[type="checkbox"]').change(function() {
+                    let style = $(this).val();
+                    if($(this).is(':checked')) {
+                        $('#form1text').addClass(style)
+                    } else {
+                        $('#form1text').removeClass(style)
+                    }
+                });
+                $('#fontsize').change(function() {
+                    let fontSize = $(this).val();
+                    $('#form1text').css('font-size', fontSize);
+                });
+
+                $('#part2nav > li').on({
+                    mouseenter: function() {
+                        $(this).children('ul').slideDown();
+                    },
+                    mouseleave: function() {
+                        $(this).children('ul').slideUp();
+                    }
+                });
             });
         </script>
     </head>
@@ -32,7 +60,7 @@
                         <li><a href="hw4.html">Looping Statements</a></li>
                         <li><a href="hw5.html">Arrays</a></li>
                         <li><a href="hw6.html">Objects</a></li>
-                        <li><a class="active" href="hw7.html">HW7</a></li>
+                        <li><a class="active" href="hw7.html">DOM & Misc jQuery</a></li>
                         <li><a href="hw8.html">HW8</a></li>
                         <li><a href="hw9.html">HW9</a></li>
                     </ul>
@@ -50,33 +78,75 @@
                             <li><a href="#splash">homework 7</a></li>
                             <li><a href="#part1">part 1</a></li>
                             <li><a href="#part2">part 2</a></li>
-                            <li><a href="#part3">part 3</a></li>
                         </ul>
                     </div>
 <!--    Homepage    -->
                     <div id="splash" class="content">
-                        <h3>homework 7</h3>
-                        <p>This assignment is split into 3 parts:</p>
+                        <h3>homework 7 - object model and event model</h3>
+                        <p>This assignment is split into 2 parts:</p>
                         <ol>
-                            <li>Part 1</li>
-                            <li>Part 2</li>
-                            <li>Part 3</li>
+                            <li>jQuery form for styling text</li>
+                            <li>dropdown menus triggered by onmouseover event</li>
                         </ol>
                     </div>
 <!--    Part 1    -->
                     <div id="part1" class="content">
-                        <h3>part 1</h3>
-                        <div class="instructions">Content Coming Soon</div>
+                        <h3>styling text using form fields</h3>
+                        <div class="instructions">The text below can have different styles applied to it, depending on which elements you select.</div>
+                        <form id="form1" name="form1">
+                            <div id="bgcolorfield">
+                                <fieldset>
+                                    <legend>&nbsp;background color&nbsp;</legend>
+                                    <input type="radio" name="bgcolor" id="magenta" value="magenta">
+                                    <label for="magenta">magenta</label><br>
+                                    <input type="radio" name="bgcolor" id="cyan" value="cyan">
+                                    <label for="cyan">cyan</label><br>
+                                    <input type="radio" name="bgcolor" id="yellow" value="yellow">
+                                    <label for="yellow">yellow</label>
+                                </fieldset>
+                            </div>
+                            <div id="stylefield">
+                                <fieldset>
+                                    <legend>&nbsp;font styling&nbsp;</legend>
+                                    <input type="checkbox" name="style" id="underline" value="underline">
+                                    <label for="underline">underline</label><br>
+                                    <input type="checkbox" name="style" id="bold" value="bold">
+                                    <label for="bold">bold</label><br>
+                                    <input type="checkbox" name="style" id="italic" value="italic">
+                                    <label for="italic">italic</label>
+                                </fieldset>
+                            </div>
+                            <div id="fontsizefield">
+                                <label for="fontsize">font size&nbsp;</label>
+                                <select name="fontsize" id="fontsize">
+                                    <option value="0.8em">0.8em</option>
+                                    <option value="1.0em" selected>1em</option>
+                                    <option value="1.2em">1.2em</option>
+                                    <option value="1.4em">1.4em</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div id="form1text">
+                            The quick brown fox jumps over the lazy dog
+                        </div>
                     </div>
 <!--    Part 2    -->
                     <div id="part2" class="content">
-                        <h3>part 2</h3>
-                        <div class="instructions">Content Coming Soon</div>
-                    </div>
-<!--    Part 3    -->
-                    <div id="part3" class="content">
-                        <h3>part 3</h3>
-                        <div class="instructions">Content Coming Soon</div>
+                        <h3>3 sample dropdown menus with onmouseover events</h3>
+                        <div class="instructions">The dropdown menus below link to different pages within this site. Try hovering your mouse over each of them.</div>
+                        <div id="menus">
+                            <ul id="part2nav">
+                                <li><a href="hw2.html">homework 2 main</a>
+                                    <ul>
+                                        <li><a href="hw2part1.html">hw2 part 1</a></li>
+                                        <li><a href="hw2part2.html">hw2 part 2</a></li>
+                                        <li><a href="hw2extracredit.html">hw2 extra credit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="hw3.html">homework 3 main</a></li>
+                                <li><a href="hw4.html">homework 4 main</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

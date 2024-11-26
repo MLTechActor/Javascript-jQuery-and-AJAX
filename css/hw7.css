@@ -1,0 +1,54 @@
+/* General */
+
+form {
+    font-size: 12px;
+}
+
+/* Part 1 */
+
+#form1 div {
+    padding: 10px 0px;
+}
+
+#form1text {
+    padding: 20px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* Part 2 */
+
+#menus {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#part2nav ul, #part2nav li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+}
+
+li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+
+}
