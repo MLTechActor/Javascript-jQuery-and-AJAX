@@ -40,12 +40,12 @@ form {
     list-style-type: none;
 }
 
-li {
+#part2nav li {
     display: inline-block;
     position: relative;
 }
 
-li ul {
+#part2nav li ul {
     display: none;
     position: absolute;
     top: 100%;
