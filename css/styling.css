@@ -110,7 +110,7 @@ header h2, header h4 {
 
 .instructions {
     padding-top: 0px;
-    height: 50px;
+    min-height: 50px;
     width: 500px;
     font-size: 11px;
 }

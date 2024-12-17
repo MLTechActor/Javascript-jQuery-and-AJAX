@@ -1,0 +1,28 @@
+table,th,td {
+  border: none;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+  
+th,td {
+  padding: 5px;
+}
+
+th {
+  font-weight: normal;
+  border-bottom: 5px solid #007670;
+}
+
+table #exptext {
+  background-color: white;
+  max-width: 300px;
+  padding-left: 15px;
+}
+
+table tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+
+table tr:nth-child(odd) {
+  background-color: #CCE4E2;
+}

@@ -4,14 +4,62 @@ form {
     font-size: 12px;
 }
 
+form table {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    line-height: 20px;
+    border-collapse: collapse;
+}
+
 /* Part 1 */
+
+#form1text {
+    display: flex;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 
 #form1 div {
     padding: 10px 0px;
 }
 
-#form1text {
-    padding: 20px;
+#form1 table td {
+    width: 300px;
+    vertical-align: top;
+}
+
+#textrgbsel, #texthsbsel, #bgrgbsel, #bghsbsel {
+    display: none;
+}
+
+.slider {
+    height: 2px !important;
+    background-color: #ccc;
+    margin: 0px;
+    padding: 0px !important;
+    border: none !important;
+}
+
+.slider .ui-slider-handle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #AD1987;
+    border: none;
+    top: -5px;
+    margin-left: -6px;
+}
+
+.slider .ui-slider-handle:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .underline {
@@ -31,24 +79,50 @@ form {
 #menus {
     width: 100%;
     margin: 0 auto;
-    text-align: left;
 }
 
-#part2nav ul, #part2nav li {
-    margin: 0px;
-    padding: 0px;
-    list-style-type: none;
+#part2nav {
+    display: flex;
+    width: 600px;
 }
 
 #part2nav li {
+    margin: 0px;
+    border: none;
+    list-style-type: none;
+}
+
+#part2nav > li {
     display: inline-block;
     position: relative;
+    padding: 2px;
+    border: 1px solid #CCE4E2;
+    margin-right: 10px;
 }
 
 #part2nav li ul {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0px;
+    padding: 0px;
+    background-color: #CCE4E2;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
+#part2nav li ul li {
+    font-size: 12px;
+    padding: 5px 0px 5px 5px;
+    left: 0px;
+    top: 0px;
+}
+
+#part2nav a, #part2nav a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#part2nav a:hover {
+    text-decoration: none;
+    color: #0088C0;
 }

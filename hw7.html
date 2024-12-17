@@ -16,19 +16,146 @@
         <script>
             $( function() {
                 $("#tabbed-content").tabs();
+
+                $("#textred").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 0,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+                $("#textgreen").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 0,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+                $("#textblue").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 0,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+                $("#texthue").slider({
+                    min: 0,
+                    max: 360,
+                    step: 1,
+                    value: 300,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+                $("#textsat").slider({
+                    min: 0,
+                    max: 100,
+                    step: 1,
+                    value: 50,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+                $("#textbrt").slider({
+                    min: 0,
+                    max: 100,
+                    step: 1,
+                    value: 0,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateTextColor();
+                    }
+                });
+
+                $("#bgred").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 255,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
+                $("#bggreen").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 255,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
+                $("#bgblue").slider({
+                    min: 0,
+                    max: 255,
+                    step: 1,
+                    value: 255,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
+                $("#bghue").slider({
+                    min: 0,
+                    max: 360,
+                    step: 1,
+                    value: 60,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
+                $("#bgsat").slider({
+                    min: 0,
+                    max: 100,
+                    step: 1,
+                    value: 50,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
+                $("#bgbrt").slider({
+                    min: 0,
+                    max: 100,
+                    step: 1,
+                    value: 100,
+                    orientation: "horizontal",
+                    slide:function(event, ui) {
+                        updateBgColor();
+                    }
+                });
             });
 
             $(document).ready(function(){
-                $('#form1 input[type="radio"]').change(function() {
-                    let selectedColor = $(this).val();
-                    $('#form1text').css('background-color', selectedColor)
+                $('#form1 input[name="textcolor"]').change(function() {
+                    changeTextPanel();
+                    updateTextColor();
                 });
+                $('#form1 input[name="bgcolor"]').change(function() {
+                    changeBgPanel();
+                    updateBgColor();
+                });
+
                 $('#form1 input[type="checkbox"]').change(function() {
                     let style = $(this).val();
                     if($(this).is(':checked')) {
-                        $('#form1text').addClass(style)
+                        $('#form1text').addClass(style);
                     } else {
-                        $('#form1text').removeClass(style)
+                        $('#form1text').removeClass(style);
                     }
                 });
                 $('#fontsize').change(function() {
@@ -61,8 +188,7 @@
                         <li><a href="hw5.html">Arrays</a></li>
                         <li><a href="hw6.html">Objects</a></li>
                         <li><a class="active" href="hw7.html">DOM & Misc jQuery</a></li>
-                        <li><a href="hw8.html">HW8</a></li>
-                        <li><a href="hw9.html">HW9</a></li>
+                        <li><a href="hw8.html">AJAX Assignment</a></li>
                     </ul>
                 </nav>
                 <div class="footer">Copyright 2024</div>
@@ -92,43 +218,92 @@
 <!--    Part 1    -->
                     <div id="part1" class="content">
                         <h3>styling text using form fields</h3>
-                        <div class="instructions">The text below can have different styles applied to it, depending on which elements you select.</div>
-                        <form id="form1" name="form1">
-                            <div id="bgcolorfield">
-                                <fieldset>
-                                    <legend>&nbsp;background color&nbsp;</legend>
-                                    <input type="radio" name="bgcolor" id="magenta" value="magenta">
-                                    <label for="magenta">magenta</label><br>
-                                    <input type="radio" name="bgcolor" id="cyan" value="cyan">
-                                    <label for="cyan">cyan</label><br>
-                                    <input type="radio" name="bgcolor" id="yellow" value="yellow">
-                                    <label for="yellow">yellow</label>
-                                </fieldset>
-                            </div>
-                            <div id="stylefield">
-                                <fieldset>
-                                    <legend>&nbsp;font styling&nbsp;</legend>
-                                    <input type="checkbox" name="style" id="underline" value="underline">
-                                    <label for="underline">underline</label><br>
-                                    <input type="checkbox" name="style" id="bold" value="bold">
-                                    <label for="bold">bold</label><br>
-                                    <input type="checkbox" name="style" id="italic" value="italic">
-                                    <label for="italic">italic</label>
-                                </fieldset>
-                            </div>
-                            <div id="fontsizefield">
-                                <label for="fontsize">font size&nbsp;</label>
-                                <select name="fontsize" id="fontsize">
-                                    <option value="0.8em">0.8em</option>
-                                    <option value="1.0em" selected>1em</option>
-                                    <option value="1.2em">1.2em</option>
-                                    <option value="1.4em">1.4em</option>
-                                </select>
-                            </div>
-                        </form>
+                        <div class="instructions">The text below can have different styles applied to it, depending on which elements you select. Try playing around with the different options.</div>
                         <div id="form1text">
                             The quick brown fox jumps over the lazy dog
                         </div>
+                        <form id="form1" name="form1">
+                            <table>
+                                <tr>
+                                    <td id="stylefield">
+                                        <fieldset>
+                                            <legend>&nbsp;font styling&nbsp;</legend>
+                                            <input type="checkbox" name="style" id="underline" value="underline">
+                                            <label for="underline">underline</label><br>
+                                            <input type="checkbox" name="style" id="bold" value="bold">
+                                            <label for="bold">bold</label><br>
+                                            <input type="checkbox" name="style" id="italic" value="italic">
+                                            <label for="italic">italic</label>
+                                        </fieldset>
+                                    </td>
+                                    <td id="fontsizefield">
+                                        <fieldset>
+                                            <legend>&nbsp;font size&nbsp;</legend>
+                                            <label for="fontsize">select a size&nbsp;</label>
+                                            <select name="fontsize" id="fontsize">
+                                                <option value="8px">8px</option>
+                                                <option value="10px">10px</option>
+                                                <option value="12px" selected>12px</option>
+                                                <option value="14px">14px</option>
+                                                <option value="16px">16px</option>
+                                            </select>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="textfield">
+                                        <fieldset>
+                                            <legend>&nbsp;text color&nbsp;</legend>
+                                            <input type="radio" name="textcolor" id="textrgb" value="textrgb">
+                                            <label for="textrgb">rgb</label>
+                                            <input type="radio" name="textcolor" id="texthsb" value="texthsb">
+                                            <label for="texthsb">hsb</label><br>
+                                            <div id="textrgbsel">
+                                                <div class="sliderinst">red</div>
+                                                <div id="textred" class="slider"></div>
+                                                <div class="sliderinst">green</div>
+                                                <div id="textgreen" class="slider"></div>
+                                                <div class="sliderinst">blue</div>
+                                                <div id="textblue" class="slider"></div>
+                                            </div>
+                                            <div id="texthsbsel">
+                                                <div class="sliderinst">hue</div>
+                                                <div id="texthue" class="slider"></div>
+                                                <div class="sliderinst">saturation</div>
+                                                <div id="textsat" class="slider"></div>
+                                                <div class="sliderinst">brightness</div>
+                                                <div id="textbrt" class="slider"></div>
+                                            </div>
+                                        </fieldset>
+                                    </td>
+                                    <td id="bgcolorfield">
+                                        <fieldset>
+                                            <legend>&nbsp;background color&nbsp;</legend>
+                                            <input type="radio" name="bgcolor" id="bgrgb" value="bgrgb">
+                                            <label for="bgrgb">rgb</label>
+                                            <input type="radio" name="bgcolor" id="bghsb" value="bghsb">
+                                            <label for="bghsb">hsb</label><br>
+                                            <div id="bgrgbsel">
+                                                <div class="sliderinst">red</div>
+                                                <div id="bgred" class="slider"></div>
+                                                <div class="sliderinst">green</div>
+                                                <div id="bggreen" class="slider"></div>
+                                                <div class="sliderinst">blue</div>
+                                                <div id="bgblue" class="slider"></div>
+                                            </div>
+                                            <div id="bghsbsel">
+                                                <div class="sliderinst">hue</div>
+                                                <div id="bghue" class="slider"></div>
+                                                <div class="sliderinst">saturation</div>
+                                                <div id="bgsat" class="slider"></div>
+                                                <div class="sliderinst">brightness</div>
+                                                <div id="bgbrt" class="slider"></div>
+                                            </div>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
                     </div>
 <!--    Part 2    -->
                     <div id="part2" class="content">
@@ -136,15 +311,27 @@
                         <div class="instructions">The dropdown menus below link to different pages within this site. Try hovering your mouse over each of them.</div>
                         <div id="menus">
                             <ul id="part2nav">
-                                <li><a href="hw2.html">homework 2 main</a>
-                                    <ul>
-                                        <li><a href="hw2part1.html">hw2 part 1</a></li>
-                                        <li><a href="hw2part2.html">hw2 part 2</a></li>
-                                        <li><a href="hw2extracredit.html">hw2 extra credit</a></li>
+                                <li><a href="hw2.html">basic operations</a>
+                                    <ul class="dropdown">
+                                        <li><a href="hw2part1.html">part 1</a></li>
+                                        <li><a href="hw2part2.html">part 2</a></li>
+                                        <li><a href="hw2extracredit.html">extra credit</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="hw3.html">homework 3 main</a></li>
-                                <li><a href="hw4.html">homework 4 main</a></li>
+                                <li><a href="hw3.html">functions</a>
+                                    <ul class="dropdown">
+                                        <li><a href="hw3.html#part1">part 1</a></li>
+                                        <li><a href="hw3.html#part2">part 2</a></li>
+                                        <li><a href="hw3.html#extracredit">extra credit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="hw4.html">looping statements</a>
+                                    <ul class="dropdown">
+                                        <li><a href="hw4.html#part1">part 1</a></li>
+                                        <li><a href="hw4.html#part2">part 2</a></li>
+                                        <li><a href="hw4.html#exracredit">extra credit</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
